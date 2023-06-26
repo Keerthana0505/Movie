@@ -1,0 +1,43 @@
+<div class="news-form">
+    <form [formGroup]="searchForm" >
+        <div>
+            SELECT THE COUNTRY
+        <select formControlName="country" aria-placeholder="Select the country">
+            
+            <option value="us">United States</option>
+            <option value="ae">United Arab Emirates</option>
+            <option value="ar">Argentina</option>
+            <option value="at">Austria</option>
+            <option value="au">Australia</option>
+            <option value="be">Belgium</option>
+            <option value="bg">Bulgaria</option>
+          </select>
+        </div>
+        <div>
+            SELECT THE CATEGORY
+          <select formControlName="category" placeholder="Select the country">
+            <option value="business">Business</option>
+            <option value="entertainment">Entertainment</option>
+            <option value="general">General</option>
+            
+          </select>
+        </div>
+</form>
+</div>
+<div class="news-container">
+<ul>
+    <li *ngFor="let n of news">
+      <div class="news-spec">
+        <p>Author Name : {{ n.author }}</p>
+        <p>Title : {{ n.title }}</p>
+        <img class="news-poster" src="{{n.urlToImage}}" alt="Image">
+        <p> Description : {{ n.description }}<p>
+        <p>Published Date : {{n.publishedAt}}</p>
+        <p>Content : {{n.content}}</p> 
+        <p>To Know more : <a href="{{ n.url }}">{{n.url}}</a></p>
+      </div>
+</ul>
+</div>
+
+
+

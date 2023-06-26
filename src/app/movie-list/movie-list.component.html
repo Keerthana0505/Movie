@@ -1,0 +1,50 @@
+<div class="addMovie-Container">
+  <h2>Add a New Movie</h2>
+
+  <form [formGroup]="movieForm" (ngSubmit)="addMovie()" novalidate>
+    <div>
+      <mat-form-field class="example-full-width">
+        <mat-label>Name</mat-label>
+    <input matInput placeholder="Enter the Movie Name" formControlName="name" required>
+      </mat-form-field>
+      <mat-error *ngIf="movieForm?.get('name')?.invalid && movieForm?.get('name')?.touched">
+        Name is required.
+      </mat-error>
+  </div>
+
+  <div>
+    <mat-form-field class="example-full-width">
+      <mat-label>Poster</mat-label>
+    <input  matInput placeholder="Enter the Poster URL" formControlName="poster" required>
+    </mat-form-field>
+    <mat-error *ngIf="movieForm?.get('poster')?.invalid && movieForm?.get('poster')?.touched">
+    Invalid poster URL.
+    </mat-error>
+  </div>
+
+  <div>
+    <mat-form-field class="example-full-width">
+      <mat-label>Rating</mat-label>
+    <input matInput placeholder="Enter Your Rating" formControlName="rating" required>
+    </mat-form-field>
+    <mat-error *ngIf="movieForm?.get('rating')?.invalid && movieForm?.get('rating')?.touched">
+    Rating must be between 0 and 10.
+    </mat-error>
+  </div>
+
+  <div>
+    <mat-form-field class="example-full-width">
+      <mat-label>Summary</mat-label>
+    <input matInput placeholder="Enter the Summary of Movie" formControlName="summary" required>
+    </mat-form-field>
+    <mat-error *ngIf="movieForm?.get('summary')?.invalid && movieForm?.get('summary')?.dirty">
+      Summary is required.
+    </mat-error>
+  </div>
+    <button mat-raised-button color="primary" type="submit" [disabled]="movieForm.invalid" >Add Movie</button>
+  </form>
+</div>
+
+<div class="movie-list-container">
+  <app-movie-card (delete)="delgetMovie($event)" *ngFor="let mv of movieList$  | async; trackBy: trackByFn" [movie]="mv"></app-movie-card>
+</div>

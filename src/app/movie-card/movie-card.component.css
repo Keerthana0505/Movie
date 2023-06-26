@@ -1,0 +1,27 @@
+.movie-container {
+    background: rgb(101, 164, 219);
+    width: 400px;
+    border-radius: 16px;
+    overflow: hidden;
+    padding: 16px;
+  }
+  
+  .movie-poster {
+    height: 400px;
+    object-fit: cover;
+    width: 100%;
+  }
+  .movie-spec {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .movie-spec > p {
+    font-size: 22px;
+    font-weight: bold;
+  }
+  
+ 
+  
+  
